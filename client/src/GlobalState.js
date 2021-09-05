@@ -1,10 +1,22 @@
 import React, { createContext, useState, useEffect } from 'react'
+import ProductsAPI from './api/ProductsAPI'
 
 export const GlobalState = createContext()
 
 export const DataProvider = ({ children }) => {
+    const [token, setToken] = useState(false)
+
+
+
+
+    const state = {
+        token: [token, setToken],
+        productsAPI: ProductsAPI()
+    }
+
+    ProductsAPI()
     return (
-        <GlobalState.Provider value="value context test">
+        <GlobalState.Provider value={state}>
             {children}
         </GlobalState.Provider>
     )
