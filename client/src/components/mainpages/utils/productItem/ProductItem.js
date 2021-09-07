@@ -1,9 +1,13 @@
 import React from 'react'
 import BtnRender from './btnRender'
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, isAdmin }) => {
     return (
         <div className="product_card">
+            {
+                isAdmin && <input type="checkbox" checked={product.checked}
+                />
+            }
             <img src={product.images.url} alt="" />
 
             <div className="product_box">

@@ -1,20 +1,23 @@
 import { useContext } from 'react'
 import { GlobalState } from '../../../GlobalState'
+import Loading from '../utils/loading/Loading'
 import ProductItem from '../utils/productItem/ProductItem'
 
 const Product = () => {
     const state = useContext(GlobalState)
 
     const [products] = state.productsAPI.products
-
-    console.log(products)
+    const [isAdmin] = state.userAPI.isAdmin
 
     return (
-        <div className="products">
-            {products.map((product) => {
-                return <ProductItem key={product._id} product={product} />
-            })}
-        </div>
+        <>
+            <div className="products">
+                {products.map((product) => {
+                    return <ProductItem key={product._id} product={product} isAdmin={isAdmin} />
+                })}
+            </div>
+            {products.length === 0 && <Loading />}
+        </>
     )
 }
 
