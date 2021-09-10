@@ -1,11 +1,11 @@
 import React from 'react'
 import BtnRender from './btnRender'
 
-const ProductItem = ({ product, isAdmin }) => {
+const ProductItem = ({ product, isAdmin, deleteProduct, handleCheck }) => {
     return (
         <div className="product_card">
             {
-                isAdmin && <input type="checkbox" checked={product.checked}
+                isAdmin && <input type="checkbox" checked={product.checked} onClick={() => { handleCheck(product._id) }}
                 />
             }
             <img src={product.images.url} alt="" />
@@ -16,7 +16,7 @@ const ProductItem = ({ product, isAdmin }) => {
                 <p>{product.description}</p>
             </div>
 
-            <BtnRender product={product} />
+            <BtnRender product={product} deleteProduct={deleteProduct} />
         </div>
     )
 }

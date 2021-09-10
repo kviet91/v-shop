@@ -53,7 +53,11 @@ const productCtrl = {
 
             const features = new APTfeatures(Products.find(), req.query).filtering().sorting().paginating()
             const products = await features.query
-            res.json({ products })
+            res.json({
+                status: 'success',
+                result: products.length,
+                products: products
+            })
 
         } catch (error) {
             return res.status(500).json({ msg: error.message })

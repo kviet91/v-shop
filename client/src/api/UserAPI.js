@@ -60,7 +60,8 @@ const UserAPI = (token) => {
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
         cart: [cart, setCart],
-        addCart: addCart
+        addCart: addCart,
+        history: [history, setHistory]
     }
 
 }
