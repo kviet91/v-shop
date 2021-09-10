@@ -8,6 +8,7 @@ const userRouter = require('./Routers/userRouter')
 const categoryRouter = require('./Routers/categoryRouter')
 const uploadRouter = require('./Routers/upload')
 const productRouter = require('./Routers/productRouter')
+const paymentRouter = require('./Routers/paymentRouter')
 
 const app = express()
 app.use(express.json())
@@ -31,6 +32,7 @@ app.use('/user', userRouter);
 app.use('/api', categoryRouter);
 app.use('/api', uploadRouter);
 app.use('/api', productRouter);
+app.use('/api', paymentRouter);
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {

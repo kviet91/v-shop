@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { createContext, useState, useEffect } from 'react'
+import CategoryAPI from './api/CategoryAPI'
 import ProductsAPI from './api/ProductsAPI'
 import UserAPI from './api/UserAPI'
 
@@ -18,14 +19,11 @@ export const DataProvider = ({ children }) => {
         firstLogin && refreshToken()
     }, [])
 
-
-
-
-
     const state = {
         token: [token, setToken],
         productsAPI: ProductsAPI(),
-        userAPI: UserAPI(token)
+        userAPI: UserAPI(token),
+        categoryAPI: CategoryAPI()
     }
 
     ProductsAPI()
